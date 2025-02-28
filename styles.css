@@ -1,0 +1,132 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background : #0b0d15;
+    color: #ffffff;
+    align-content: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.card{
+margin: 0 auto;
+padding: 2em;
+width: 300px;
+background-color: #1c1f2b;
+text-align: center;
+border-radius: 10px;
+position: relative;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.card::after, .card::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: conic-gradient(from var(--angle),#ff4545, #00ff99, #006aff , #ff4545);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+
+.card::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #0011ff;
+    transition: background-color 0.3s ease;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #140a6d;
+}
+
+ul {
+    list-style: none;
+    padding: 1;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    background: #020a20;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.complete-btn, .delete-btn {
+    margin-left: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.complete-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #d32f2f;
+    color: white;
+}
+
+.complete-btn:hover {
+    background-color: #388e3c;
+}
+
+.delete-btn:hover {
+    background-color: #880900;
+}
+
